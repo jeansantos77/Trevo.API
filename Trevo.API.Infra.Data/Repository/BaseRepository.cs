@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Price.API.Domain.Interfaces;
-using Price.API.Infra.Data.Context;
+using Trevo.API.Domain.Interfaces;
+using Trevo.API.Infra.Data.Context;
 using System.Linq.Expressions;
 
-namespace Price.API.Infra.Data.Repository
+namespace Trevo.API.Infra.Data.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

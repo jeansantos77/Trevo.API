@@ -1,6 +1,6 @@
 ﻿using Trevo.API.Domain.Entities;
 
-namespace Price.API.Domain.Interfaces
+namespace Trevo.API.Domain.Interfaces
 {
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {

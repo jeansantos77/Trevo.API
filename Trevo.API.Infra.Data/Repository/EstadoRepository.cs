@@ -1,8 +1,8 @@
-﻿using Price.API.Domain.Interfaces;
-using Price.API.Infra.Data.Context;
+﻿using Trevo.API.Domain.Interfaces;
+using Trevo.API.Infra.Data.Context;
 using Trevo.API.Domain.Entities;
 
-namespace Price.API.Infra.Data.Repository
+namespace Trevo.API.Infra.Data.Repository
 {
     public class EstadoRepository : BaseRepository<Estado>, IEstadoRepository
     {

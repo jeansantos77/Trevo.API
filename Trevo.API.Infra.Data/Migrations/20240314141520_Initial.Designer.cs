@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Price.API.Infra.Data.Context;
+using Trevo.API.Infra.Data.Context;
 
 #nullable disable
 
 namespace Trevo.API.Infra.Data.Migrations
 {
     [DbContext(typeof(TrevoContext))]
-    [Migration("20240313201204_Initial")]
+    [Migration("20240314141520_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -223,6 +223,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("AtualizadoEm")
                         .HasColumnType("timestamp with time zone");

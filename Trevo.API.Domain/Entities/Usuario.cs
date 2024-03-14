@@ -9,6 +9,7 @@
         public required string Login { get; set; }
         public required string Senha { get; set; }
         public required int Perfil { get; set; }
+        public required bool Ativo { get; set; }
 
     }
 }

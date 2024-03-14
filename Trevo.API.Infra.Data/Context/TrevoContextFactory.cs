@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Price.API.Infra.Data.Context
+namespace Trevo.API.Infra.Data.Context
 {
     public class TrevoContextFactory : IDesignTimeDbContextFactory<TrevoContext>
     {

@@ -2,7 +2,7 @@
 using Trevo.API.Domain.Entities;
 using Trevo.API.Infra.Data.EntityConfiguration;
 
-namespace Price.API.Infra.Data.Context
+namespace Trevo.API.Infra.Data.Context
 {
     public class TrevoContext : DbContext
     {

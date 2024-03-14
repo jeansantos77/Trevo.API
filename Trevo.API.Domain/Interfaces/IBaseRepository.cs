@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Price.API.Domain.Interfaces
+namespace Trevo.API.Domain.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {

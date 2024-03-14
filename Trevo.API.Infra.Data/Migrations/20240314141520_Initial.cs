@@ -42,6 +42,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     Login = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
                     Senha = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     Perfil = table.Column<int>(type: "integer", nullable: false),
+                    Ativo = table.Column<bool>(type: "boolean", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
                     CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
