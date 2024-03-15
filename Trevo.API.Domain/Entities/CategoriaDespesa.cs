@@ -1,0 +1,7 @@
+﻿namespace Trevo.API.Domain.Entities
+{
+    public class CategoriaDespesa : Base
+    {
+        public required string Descricao { get; set; }
+    }
+}

@@ -44,7 +44,7 @@ namespace Trevo.API.Application.Implementations
         public async Task<List<EmpresaResultModel>> GetAll()
         {
             var entities = await _empresaRepository.GetAll(t => t.Id > 0);
-            return _mapper.Map<List<EmpresaResultModel>>(entities);
+            return _mapper.Map<List<EmpresaResultModel>>(entities).OrderBy(x => x.Nome).ToList();
         }
 
         public async Task<EmpresaResultModel> GetById(int id)
@@ -61,7 +61,7 @@ namespace Trevo.API.Application.Implementations
 
         public async Task Update(int id, EmpresaModel entity)
         {
-            Empresa existentRecord = await _empresaRepository.GetById(x => x.Id == id);
+            Empresa existentRecord = _mapper.Map<Empresa>(await GetById(id));
 
             if (!string.IsNullOrEmpty(entity.Nome))
                 existentRecord.Nome = entity.Nome;
@@ -93,6 +93,7 @@ namespace Trevo.API.Application.Implementations
             existentRecord.AtualizadoPor = UserLogged;
 
             await _empresaRepository.Update(existentRecord);
+
         }
 
     }

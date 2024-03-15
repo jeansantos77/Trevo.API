@@ -14,6 +14,17 @@ namespace Trevo.API.Infra.Data.Context
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
 
+        public DbSet<Marca> Marcas { get; set; }
+        public DbSet<Modelo> Modelos { get; set; }
+        public DbSet<TipoDespesa> TiposDespesa { get; set; }
+        public DbSet<CategoriaDespesa> CategoriasDespesas { get; set; }
+        public DbSet<CategoriaVeiculo> CategoriasVeiculo { get; set; }
+        public DbSet<Combustivel> Combustiveis { get; set; }
+        public DbSet<Cor> Cores { get; set; }
+        public DbSet<Acessorio> Acessorios { get; set; }
+        public DbSet<SituacaoVeiculo> SituacoesVeiculo { get; set; }
+        public DbSet<FormaPagamento> FormasPagamento { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsuarioConfigurationMap());
@@ -21,6 +32,17 @@ namespace Trevo.API.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new EstadoConfigurationMap());
             modelBuilder.ApplyConfiguration(new PaisConfigurationMap());
             modelBuilder.ApplyConfiguration(new EmpresaConfigurationMap());
+
+            modelBuilder.ApplyConfiguration(new MarcaConfigurationMap());
+            modelBuilder.ApplyConfiguration(new ModeloConfigurationMap());
+            modelBuilder.ApplyConfiguration(new TipoDespesaConfigurationMap());
+            modelBuilder.ApplyConfiguration(new CategoriaDespesaConfigurationMap());
+            modelBuilder.ApplyConfiguration(new CombustivelConfigurationMap());
+            modelBuilder.ApplyConfiguration(new CorConfigurationMap());
+            modelBuilder.ApplyConfiguration(new CategoriaVeiculoConfigurationMap());
+            modelBuilder.ApplyConfiguration(new AcessorioConfigurationMap());
+            modelBuilder.ApplyConfiguration(new SituacaoVeiculoConfigurationMap());
+            modelBuilder.ApplyConfiguration(new FormaPagamentoConfigurationMap());
 
             base.OnModelCreating(modelBuilder);
         }

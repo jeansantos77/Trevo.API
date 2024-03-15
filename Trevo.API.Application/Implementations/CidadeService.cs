@@ -44,7 +44,8 @@ namespace Trevo.API.Application.Implementations
         public async Task<List<CidadeResultModel>> GetAll()
         {
             var entities = await _cidadeRepository.GetAll(t => t.Id > 0);
-            return _mapper.Map<List<CidadeResultModel>>(entities);
+
+            return _mapper.Map<List<CidadeResultModel>>(entities).OrderBy(x => x.Nome).ToList();
         }
 
         public async Task<CidadeResultModel> GetById(int id)
@@ -61,7 +62,7 @@ namespace Trevo.API.Application.Implementations
 
         public async Task Update(int id, CidadeModel entity)
         {
-            Cidade existentRecord = await _cidadeRepository.GetById(x => x.Id == id);
+            Cidade existentRecord = _mapper.Map<Cidade>(await GetById(id));
 
             if (!string.IsNullOrEmpty(entity.Nome))
                 existentRecord.Nome = entity.Nome;

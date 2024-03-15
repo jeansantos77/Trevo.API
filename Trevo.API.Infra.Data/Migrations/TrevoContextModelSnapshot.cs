@@ -233,8 +233,8 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<string>("CPF")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(11)
+                        .HasColumnType("character varying(11)");
 
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("timestamp with time zone");
@@ -268,8 +268,8 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(250)");
 
                     b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
 

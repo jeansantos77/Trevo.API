@@ -36,15 +36,15 @@ namespace Trevo.API.Application.Implementations
         private static ClaimsIdentity GenerateClaims(UsuarioResultModel model)
         {
             var ci = new ClaimsIdentity();
-            ci.AddClaim(new Claim(ClaimTypes.Name, model.Login));
-            ci.AddClaim(new Claim(ClaimTypes.Role, GetProfileDescription(model.Perfil.Value)));
+            ci.AddClaim(new Claim(ClaimTypes.Name, model.Login ?? "User Missing"));
+            ci.AddClaim(new Claim(ClaimTypes.Role, GetProfileDescription(model.Perfil.Value)) );
 
             return ci;
         }
 
         private static string GetProfileDescription(int profile)
         {
-            return (profile == 1) ? "Administrador" : "Usuário";
+            return (profile == 1) ? "Administrador" : "Usuario";
         }
     }
 }

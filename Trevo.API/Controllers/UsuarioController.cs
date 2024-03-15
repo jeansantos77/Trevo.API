@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trevo.API.Application.Interfaces;
 using Trevo.API.Application.Models;
 
 namespace Trevo.API.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [ApiController]
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase

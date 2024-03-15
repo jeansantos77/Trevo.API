@@ -20,7 +20,7 @@ namespace Trevo.API.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            if (string.IsNullOrEmpty(model.Login) || string.IsNullOrEmpty(model.Senha))
+            if (string.IsNullOrEmpty(model.Login) || string.IsNullOrEmpty(model.Password))
             {
                 return Unauthorized();
             }

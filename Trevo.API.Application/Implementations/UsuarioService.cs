@@ -55,7 +55,7 @@ namespace Trevo.API.Application.Implementations
         public async Task<List<UsuarioResultModel>> GetAll()
         {
             var entities = await _usuarioRepository.GetAll(t => t.Id > 0);
-            return _mapper.Map<List<UsuarioResultModel>>(entities);
+            return _mapper.Map<List<UsuarioResultModel>>(entities).OrderBy(x => x.Nome).ToList();
         }
 
         public async Task<UsuarioResultModel> GetById(int id)
@@ -72,7 +72,7 @@ namespace Trevo.API.Application.Implementations
 
         public async Task Update(int id, UsuarioModel entity)
         {
-            Usuario existentRecord = await _usuarioRepository.GetById(x => x.Id == id);
+            Usuario existentRecord = _mapper.Map<Usuario>(await GetById(id));
 
             if (!string.IsNullOrEmpty(entity.Nome))
                 existentRecord.Nome = entity.Nome;
@@ -91,6 +91,12 @@ namespace Trevo.API.Application.Implementations
                 }
             }
 
+            if (!string.IsNullOrEmpty(entity.Telefone))
+                existentRecord.Telefone = entity.Telefone;
+
+            if (!string.IsNullOrEmpty(entity.CPF))
+                existentRecord.CPF = entity.CPF;
+
             if (entity.Perfil != null)
             {
                 ValidateProfile(entity);
@@ -107,7 +113,7 @@ namespace Trevo.API.Application.Implementations
 
         public async Task<UsuarioResultModel> GetByLogin(LoginModel model)
         {
-            string cryptoSenha = CryptographyService.CryptPassword(model.Senha);
+            string cryptoSenha = CryptographyService.CryptPassword(model.Password);
 
             var entities = await _usuarioRepository.GetAll(t => t.Login == model.Login && t.Senha == cryptoSenha);
 
