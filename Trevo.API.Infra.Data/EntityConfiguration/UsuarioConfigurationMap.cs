@@ -23,12 +23,6 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
 
             builder.HasIndex(c => c.Login).IsUnique();
 
-            builder.Property(c => c.Telefone)
-                   .HasMaxLength(50);
-
-            builder.Property(c => c.CPF)
-                   .HasMaxLength(11);
-
             builder.Property(c => c.Senha)
                    .HasMaxLength(250);
 

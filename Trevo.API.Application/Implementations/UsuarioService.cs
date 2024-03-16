@@ -91,12 +91,6 @@ namespace Trevo.API.Application.Implementations
                 }
             }
 
-            if (!string.IsNullOrEmpty(entity.Telefone))
-                existentRecord.Telefone = entity.Telefone;
-
-            if (!string.IsNullOrEmpty(entity.CPF))
-                existentRecord.CPF = entity.CPF;
-
             if (entity.Perfil != null)
             {
                 ValidateProfile(entity);

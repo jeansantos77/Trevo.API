@@ -58,6 +58,107 @@ namespace Trevo.API.Application.AutoMappings
             CreateMap<EmpresaResultModel, Empresa>()
                 .ReverseMap();
 
+            CreateMap<MarcaModel, Marca>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<MarcaResultModel, Marca>()
+                .ReverseMap();
+
+            CreateMap<ModeloModel, Modelo>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<ModeloResultModel, Modelo>()
+                .ReverseMap();
+
+            CreateMap<TipoDespesaModel, TipoDespesa>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<TipoDespesaResultModel, TipoDespesa>()
+                .ReverseMap();
+
+            CreateMap<CategoriaDespesaModel, CategoriaDespesa>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<CategoriaDespesaResultModel, CategoriaDespesa>()
+                .ReverseMap();
+
+            CreateMap<CategoriaVeiculoModel, CategoriaVeiculo>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<CategoriaVeiculoResultModel, CategoriaVeiculo>()
+                .ReverseMap();
+
+            CreateMap<CombustivelModel, Combustivel>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<CombustivelResultModel, Combustivel>()
+                .ReverseMap();
+
+            CreateMap<CorModel, Cor>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<CorResultModel, Cor>()
+                .ReverseMap();
+
+            CreateMap<AcessorioModel, Acessorio>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<AcessorioResultModel, Acessorio>()
+                .ReverseMap();
+
+            CreateMap<SituacaoVeiculoModel, SituacaoVeiculo>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<SituacaoVeiculoResultModel, SituacaoVeiculo>()
+                .ReverseMap();
+
+            CreateMap<FormaPagamentoModel, FormaPagamento>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<FormaPagamentoResultModel, FormaPagamento>()
+                .ReverseMap();
+
+
         }
     }
 }

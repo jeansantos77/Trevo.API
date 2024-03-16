@@ -38,6 +38,27 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
 builder.Services.AddScoped<IEmpresaService, EmpresaService>();
 
+builder.Services.AddScoped<IMarcaRepository, MarcaRepository>();
+builder.Services.AddScoped<IMarcaService, MarcaService>();
+builder.Services.AddScoped<IModeloRepository, ModeloRepository>();
+builder.Services.AddScoped<IModeloService, ModeloService>();
+builder.Services.AddScoped<ITipoDespesaRepository, TipoDespesaRepository>();
+builder.Services.AddScoped<ITipoDespesaService, TipoDespesaService>();
+builder.Services.AddScoped<ICategoriaDespesaRepository, CategoriaDespesaRepository>();
+builder.Services.AddScoped<ICategoriaDespesaService, CategoriaDespesaService>();
+builder.Services.AddScoped<ICategoriaVeiculoRepository, CategoriaVeiculoRepository>();
+builder.Services.AddScoped<ICategoriaVeiculoService, CategoriaVeiculoService>();
+builder.Services.AddScoped<ISituacaoVeiculoRepository, SituacaoVeiculoRepository>();
+builder.Services.AddScoped<ISituacaoVeiculoService, SituacaoVeiculoService>();
+builder.Services.AddScoped<ICombustivelRepository, CombustivelRepository>();
+builder.Services.AddScoped<ICombustivelService, CombustivelService>();
+builder.Services.AddScoped<ICorRepository, CorRepository>();
+builder.Services.AddScoped<ICorService, CorService>(); 
+builder.Services.AddScoped<IAcessorioRepository, AcessorioRepository>();
+builder.Services.AddScoped<IAcessorioService, AcessorioService>();
+builder.Services.AddScoped<IFormaPagamentoRepository, FormaPagamentoRepository>();
+builder.Services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
+
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));
 

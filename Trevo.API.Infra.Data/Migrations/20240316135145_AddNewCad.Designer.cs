@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Trevo.API.Infra.Data.Context;
@@ -11,9 +12,11 @@ using Trevo.API.Infra.Data.Context;
 namespace Trevo.API.Infra.Data.Migrations
 {
     [DbContext(typeof(TrevoContext))]
-    partial class TrevoContextModelSnapshot : ModelSnapshot
+    [Migration("20240316135145_AddNewCad")]
+    partial class AddNewCad
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
