@@ -10,14 +10,14 @@ namespace Trevo.API.Application.Implementations
     public class EstadoService : IEstadoService
     {
         private readonly IMapper _mapper;
-        private readonly IEstadoRepository _EstadoRepository;
+        private readonly IEstadoRepository _estadoRepository;
 
         public required string UserLogged { get; set; }
 
         public EstadoService(IHttpContextAccessor accessor, IMapper mapper, IEstadoRepository EstadoRepository)
         {
             _mapper = mapper;
-            _EstadoRepository = EstadoRepository;
+            _estadoRepository = EstadoRepository;
 
             UserLogged = accessor.HttpContext?.User?.Identity?.Name ?? "Missing User";
         }
@@ -29,7 +29,7 @@ namespace Trevo.API.Application.Implementations
             model.CriadoPor = UserLogged;
             model.AtualizadoPor = model.CriadoPor;
 
-            await _EstadoRepository.Add(model);
+            await _estadoRepository.Add(model);
         }
 
         public async Task Delete(int id)
@@ -38,18 +38,19 @@ namespace Trevo.API.Application.Implementations
 
             Estado entity = _mapper.Map<Estado>(model);
 
-            await _EstadoRepository.Delete(entity);
+            await _estadoRepository.Delete(entity);
         }
 
         public async Task<List<EstadoResultModel>> GetAll()
         {
-            var entities = await _EstadoRepository.GetAll(t => t.Id > 0);
+            //var entities = await _estadoRepository.GetAll(t => t.Id > 0);
+            var entities = await _estadoRepository.GetAll(t => t.Id > 0);
             return _mapper.Map<List<EstadoResultModel>>(entities).OrderBy(x => x.Nome).ToList();
         }
 
         public async Task<EstadoResultModel> GetById(int id)
         {
-            Estado entity = await _EstadoRepository.GetById(x => x.Id == id);
+            Estado entity = await _estadoRepository.GetById(x => x.Id == id);
 
             if (entity == null)
             {
@@ -74,7 +75,7 @@ namespace Trevo.API.Application.Implementations
 
             existentRecord.AtualizadoPor = UserLogged;
 
-            await _EstadoRepository.Update(existentRecord);
+            await _estadoRepository.Update(existentRecord);
         }
     }
 

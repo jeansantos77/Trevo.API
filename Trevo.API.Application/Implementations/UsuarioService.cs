@@ -19,7 +19,7 @@ namespace Trevo.API.Application.Implementations
             _mapper = mapper;
             _usuarioRepository = usuarioRepository;
 
-            UserLogged = accessor.HttpContext?.User?.Identity?.Name ?? "Missing Usuario";
+            UserLogged = accessor.HttpContext?.User?.Identity?.Name ?? "Missing User";
         }
 
         public async Task Add(UsuarioModel entity)

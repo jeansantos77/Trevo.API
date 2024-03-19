@@ -119,11 +119,11 @@ builder.Services.AddAuthentication(x =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Trevo.API v1"));
-}
+//}
 
 app.UseHttpsRedirection();
 
