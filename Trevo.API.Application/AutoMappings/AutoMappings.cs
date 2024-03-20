@@ -158,6 +158,35 @@ namespace Trevo.API.Application.AutoMappings
             CreateMap<FormaPagamentoResultModel, FormaPagamento>()
                 .ReverseMap();
 
+            CreateMap<FornecedorModel, Fornecedor>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<FornecedorResultModel, Fornecedor>()
+                .ReverseMap();
+
+            CreateMap<VendedorModel, Vendedor>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<VendedorResultModel, Vendedor>()
+                .ReverseMap();
+
+            CreateMap<FinanceiraModel, Financeira>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<FinanceiraResultModel, Financeira>()
+                .ReverseMap();
 
         }
     }

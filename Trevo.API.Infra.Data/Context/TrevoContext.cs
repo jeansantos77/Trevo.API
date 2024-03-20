@@ -23,7 +23,10 @@ namespace Trevo.API.Infra.Data.Context
         public DbSet<Cor> Cores { get; set; }
         public DbSet<Acessorio> Acessorios { get; set; }
         public DbSet<SituacaoVeiculo> SituacoesVeiculo { get; set; }
+        public DbSet<Financeira> Financeiras { get; set; }
         public DbSet<FormaPagamento> FormasPagamento { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,6 +46,9 @@ namespace Trevo.API.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new AcessorioConfigurationMap());
             modelBuilder.ApplyConfiguration(new SituacaoVeiculoConfigurationMap());
             modelBuilder.ApplyConfiguration(new FormaPagamentoConfigurationMap());
+            modelBuilder.ApplyConfiguration(new FinanceiraConfigurationMap());
+            modelBuilder.ApplyConfiguration(new FornecedorConfigurationMap());
+            modelBuilder.ApplyConfiguration(new VendedorConfigurationMap());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -68,3 +74,4 @@ namespace Trevo.API.Infra.Data.Context
 
     }
 }
+

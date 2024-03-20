@@ -113,7 +113,7 @@ namespace Trevo.API.Application.Implementations
 
             if (entities.Count == 0)
             {
-                throw new Exception($"Login ou senha não confere.");
+                throw new Exception($"Login ou senha inválidos.");
             }
 
             return _mapper.Map<UsuarioResultModel>(entities.FirstOrDefault());

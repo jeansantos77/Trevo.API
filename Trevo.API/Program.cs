@@ -58,6 +58,14 @@ builder.Services.AddScoped<IAcessorioRepository, AcessorioRepository>();
 builder.Services.AddScoped<IAcessorioService, AcessorioService>();
 builder.Services.AddScoped<IFormaPagamentoRepository, FormaPagamentoRepository>();
 builder.Services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
+builder.Services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+builder.Services.AddScoped<IFornecedorService, FornecedorService>();
+builder.Services.AddScoped<IFinanceiraRepository, FinanceiraRepository>();
+builder.Services.AddScoped<IFinanceiraService, FinanceiraService>();
+builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
+builder.Services.AddScoped<IVendedorService, VendedorService>();
+
+
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));
