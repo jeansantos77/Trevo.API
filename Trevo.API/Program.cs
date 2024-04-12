@@ -64,8 +64,8 @@ builder.Services.AddScoped<IFinanceiraRepository, FinanceiraRepository>();
 builder.Services.AddScoped<IFinanceiraService, FinanceiraService>();
 builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
-
-
+builder.Services.AddScoped<IVersaoRepository, VersaoRepository>();
+builder.Services.AddScoped<IVersaoService, VersaoService>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));

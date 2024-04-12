@@ -188,6 +188,16 @@ namespace Trevo.API.Application.AutoMappings
             CreateMap<FinanceiraResultModel, Financeira>()
                 .ReverseMap();
 
+            CreateMap<VersaoModel, Versao>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<VersaoResultModel, Versao>()
+                .ReverseMap();
+
         }
     }
 }

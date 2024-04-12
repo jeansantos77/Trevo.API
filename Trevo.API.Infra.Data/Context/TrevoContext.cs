@@ -16,6 +16,7 @@ namespace Trevo.API.Infra.Data.Context
 
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Modelo> Modelos { get; set; }
+        public DbSet<ModeloDesejado> ModelosDesejado { get; set; }
         public DbSet<TipoDespesa> TiposDespesa { get; set; }
         public DbSet<CategoriaDespesa> CategoriasDespesas { get; set; }
         public DbSet<CategoriaVeiculo> CategoriasVeiculo { get; set; }
@@ -27,6 +28,7 @@ namespace Trevo.API.Infra.Data.Context
         public DbSet<FormaPagamento> FormasPagamento { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Versao> Versoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,8 +40,10 @@ namespace Trevo.API.Infra.Data.Context
 
             modelBuilder.ApplyConfiguration(new MarcaConfigurationMap());
             modelBuilder.ApplyConfiguration(new ModeloConfigurationMap());
+            modelBuilder.ApplyConfiguration(new ModeloDesejadoConfigurationMap());
             modelBuilder.ApplyConfiguration(new TipoDespesaConfigurationMap());
             modelBuilder.ApplyConfiguration(new CategoriaDespesaConfigurationMap());
+            modelBuilder.ApplyConfiguration(new ClienteConfigurationMap());
             modelBuilder.ApplyConfiguration(new CombustivelConfigurationMap());
             modelBuilder.ApplyConfiguration(new CorConfigurationMap());
             modelBuilder.ApplyConfiguration(new CategoriaVeiculoConfigurationMap());
@@ -49,6 +53,7 @@ namespace Trevo.API.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new FinanceiraConfigurationMap());
             modelBuilder.ApplyConfiguration(new FornecedorConfigurationMap());
             modelBuilder.ApplyConfiguration(new VendedorConfigurationMap());
+            modelBuilder.ApplyConfiguration(new VersaoConfigurationMap());
 
             base.OnModelCreating(modelBuilder);
         }
