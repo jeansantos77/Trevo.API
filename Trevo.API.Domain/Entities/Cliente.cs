@@ -12,7 +12,7 @@ namespace Trevo.API.Domain.Entities
         public required string Cep { get; set; }
         public required string Logradouro { get; set; }
         public required string Numero { get; set; }
-        public required string Complemento { get; set; }
+        public string? Complemento { get; set; }
         public required string Bairro { get; set; }
         public required int CidadeId { get; set; }
         public required Cidade Cidade { get; set; }

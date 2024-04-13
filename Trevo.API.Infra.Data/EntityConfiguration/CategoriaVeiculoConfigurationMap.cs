@@ -12,12 +12,6 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
 
             builder.Property(c => c.Descricao)
                    .HasMaxLength(100);
-
-            builder.Property(c => c.CriadoPor)
-                   .HasMaxLength(30);
-
-            builder.Property(c => c.AtualizadoPor)
-                   .HasMaxLength(30);
         }
     }
 }

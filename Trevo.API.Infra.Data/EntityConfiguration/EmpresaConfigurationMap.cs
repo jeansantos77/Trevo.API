@@ -34,17 +34,6 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
             builder.Property(c => c.Bairro)
                 .HasMaxLength(50);
 
-            builder.HasOne(c => c.Cidade)
-               .WithMany()
-               .HasForeignKey(c => c.CidadeId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Property(c => c.CriadoPor)
-                   .HasMaxLength(30);
-
-            builder.Property(c => c.AtualizadoPor)
-                    .HasMaxLength(30);
-
         }
     }
 }

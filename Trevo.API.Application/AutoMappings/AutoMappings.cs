@@ -118,6 +118,16 @@ namespace Trevo.API.Application.AutoMappings
             CreateMap<CombustivelResultModel, Combustivel>()
                 .ReverseMap();
 
+            CreateMap<CambioModel, Cambio>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<CambioResultModel, Cambio>()
+                .ReverseMap();
+
             CreateMap<CorModel, Cor>()
                 .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
                 .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
@@ -196,6 +206,24 @@ namespace Trevo.API.Application.AutoMappings
                 .ReverseMap();
 
             CreateMap<VersaoResultModel, Versao>()
+                .ReverseMap();
+
+
+            CreateMap<ClienteModel, Cliente>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<ClienteResultModel, Cliente>()
+                .ReverseMap();
+
+            CreateMap<ModeloDesejadoModel, ModeloDesejado>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
                 .ReverseMap();
 
         }

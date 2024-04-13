@@ -64,11 +64,7 @@ namespace Trevo.API.Application.Implementations
         {
             Versao existentRecord = _mapper.Map<Versao>(await GetById(id));
 
-            if (!string.IsNullOrEmpty(entity.Descricao))
-                existentRecord.Descricao = entity.Descricao;
-
-            if (entity.ModeloId.HasValue && existentRecord.ModeloId != entity.ModeloId)
-                existentRecord.ModeloId = entity.ModeloId.Value;
+            UtilService.CopyIfNotNullOrEmpty(entity, existentRecord);
 
             existentRecord.AtualizadoPor = UserLogged;
 

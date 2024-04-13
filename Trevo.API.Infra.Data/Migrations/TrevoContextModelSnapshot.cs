@@ -31,7 +31,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -39,7 +39,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -56,6 +56,40 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Acessorios");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Cambio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cambios");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.CategoriaDespesa", b =>
                 {
                     b.Property<int>("Id")
@@ -65,7 +99,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -73,7 +107,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -99,7 +133,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -107,7 +141,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -133,7 +167,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -141,7 +175,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -163,6 +197,96 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Cidades");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("character varying(8)");
+
+                    b.Property<int>("CidadeId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Complemento")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("character varying(11)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<int>("FormaPagamentoId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Logradouro")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTime>("Nascimento")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
+
+                    b.Property<string>("Obs")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CidadeId");
+
+                    b.HasIndex("FormaPagamentoId");
+
+                    b.ToTable("Clientes");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Combustivel", b =>
                 {
                     b.Property<int>("Id")
@@ -172,7 +296,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -180,7 +304,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -206,7 +330,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -214,7 +338,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -240,7 +364,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -266,7 +390,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(14)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -314,7 +438,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -322,7 +446,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -361,7 +485,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -392,7 +516,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -440,7 +564,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -448,7 +572,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -477,7 +601,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -512,7 +636,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(11)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -556,6 +680,55 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Fornecedores");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.FotoVeiculo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Caminho")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<int>("VeiculoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VeiculoId");
+
+                    b.ToTable("FotosVeiculo");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Marca", b =>
                 {
                     b.Property<int>("Id")
@@ -565,7 +738,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -573,7 +746,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -599,7 +772,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -607,7 +780,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -629,6 +802,56 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Modelos");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.ModeloDesejado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CorId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<int>("ModeloId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("VersaoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CorId");
+
+                    b.HasIndex("ModeloId");
+
+                    b.HasIndex("VersaoId");
+
+                    b.HasIndex("ClienteId", "ModeloId", "VersaoId", "CorId")
+                        .IsUnique();
+
+                    b.ToTable("ModelosDesejados");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Pais", b =>
                 {
                     b.Property<int>("Id")
@@ -638,7 +861,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -646,7 +869,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -672,7 +895,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -680,7 +903,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -706,7 +929,7 @@ namespace Trevo.API.Infra.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -714,7 +937,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -743,7 +966,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -751,7 +974,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -792,6 +1015,103 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Veiculo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<short>("AnoFabricacao")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("AnoModelo")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<int>("CambioId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CategoriaVeiculoId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Chassi")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("CodigoFipe")
+                        .HasMaxLength(7)
+                        .HasColumnType("character varying(7)");
+
+                    b.Property<int>("CombustivelId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CorId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<int>("ModeloId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NumeroMotor")
+                        .HasMaxLength(12)
+                        .HasColumnType("character varying(12)");
+
+                    b.Property<string>("Obs")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("Placa")
+                        .IsRequired()
+                        .HasMaxLength(7)
+                        .HasColumnType("character varying(7)");
+
+                    b.Property<short>("Portas")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("Renavam")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("character varying(11)");
+
+                    b.Property<int>("SituacaoVeiculoId")
+                        .HasColumnType("integer");
+
+                    b.Property<double?>("ValorFipeAtual")
+                        .HasColumnType("numeric(18,2)");
+
+                    b.Property<double?>("ValorFipeEntrada")
+                        .HasColumnType("numeric(18,2)");
+
+                    b.Property<double?>("ValorMinimoVenda")
+                        .HasColumnType("numeric(18,2)");
+
+                    b.Property<double?>("ValorVenda")
+                        .HasColumnType("numeric(18,2)");
+
+                    b.Property<int>("VersaoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Veiculos");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Vendedor", b =>
                 {
                     b.Property<int>("Id")
@@ -804,7 +1124,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("AtualizadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("AtualizadoPor")
                         .IsRequired()
@@ -831,7 +1151,7 @@ namespace Trevo.API.Infra.Data.Migrations
                         .HasColumnType("character varying(11)");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<string>("CriadoPor")
                         .IsRequired()
@@ -871,6 +1191,45 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.ToTable("Vendedores");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Versao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("AtualizadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("timestamp");
+
+                    b.Property<string>("CriadoPor")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<int>("ModeloId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModeloId");
+
+                    b.ToTable("Versoes");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Cidade", b =>
                 {
                     b.HasOne("Trevo.API.Domain.Entities.Estado", "Estado")
@@ -880,6 +1239,25 @@ namespace Trevo.API.Infra.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Estado");
+                });
+
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Cliente", b =>
+                {
+                    b.HasOne("Trevo.API.Domain.Entities.Cidade", "Cidade")
+                        .WithMany()
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Trevo.API.Domain.Entities.FormaPagamento", "FormaPagamento")
+                        .WithMany()
+                        .HasForeignKey("FormaPagamentoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Cidade");
+
+                    b.Navigation("FormaPagamento");
                 });
 
             modelBuilder.Entity("Trevo.API.Domain.Entities.Empresa", b =>
@@ -926,6 +1304,17 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.Navigation("Cidade");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.FotoVeiculo", b =>
+                {
+                    b.HasOne("Trevo.API.Domain.Entities.Veiculo", "Veiculo")
+                        .WithMany("FotosVeiculo")
+                        .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Veiculo");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Modelo", b =>
                 {
                     b.HasOne("Trevo.API.Domain.Entities.Marca", "Marca")
@@ -937,6 +1326,40 @@ namespace Trevo.API.Infra.Data.Migrations
                     b.Navigation("Marca");
                 });
 
+            modelBuilder.Entity("Trevo.API.Domain.Entities.ModeloDesejado", b =>
+                {
+                    b.HasOne("Trevo.API.Domain.Entities.Cliente", "Cliente")
+                        .WithMany("ModelosDesejados")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Trevo.API.Domain.Entities.Cor", "Cor")
+                        .WithMany()
+                        .HasForeignKey("CorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Trevo.API.Domain.Entities.Modelo", "Modelo")
+                        .WithMany()
+                        .HasForeignKey("ModeloId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Trevo.API.Domain.Entities.Versao", "Versao")
+                        .WithMany()
+                        .HasForeignKey("VersaoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Cor");
+
+                    b.Navigation("Modelo");
+
+                    b.Navigation("Versao");
+                });
+
             modelBuilder.Entity("Trevo.API.Domain.Entities.Vendedor", b =>
                 {
                     b.HasOne("Trevo.API.Domain.Entities.Cidade", "Cidade")
@@ -946,6 +1369,27 @@ namespace Trevo.API.Infra.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Cidade");
+                });
+
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Versao", b =>
+                {
+                    b.HasOne("Trevo.API.Domain.Entities.Modelo", "Modelo")
+                        .WithMany()
+                        .HasForeignKey("ModeloId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Modelo");
+                });
+
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Cliente", b =>
+                {
+                    b.Navigation("ModelosDesejados");
+                });
+
+            modelBuilder.Entity("Trevo.API.Domain.Entities.Veiculo", b =>
+                {
+                    b.Navigation("FotosVeiculo");
                 });
 #pragma warning restore 612, 618
         }

@@ -66,6 +66,10 @@ builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
 builder.Services.AddScoped<IVersaoRepository, VersaoRepository>();
 builder.Services.AddScoped<IVersaoService, VersaoService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<ICambioRepository, CambioRepository>();
+builder.Services.AddScoped<ICambioService, CambioService>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));

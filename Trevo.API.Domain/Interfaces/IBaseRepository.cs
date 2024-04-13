@@ -9,6 +9,9 @@ namespace Trevo.API.Domain.Interfaces
         Task Delete(T entity);
         Task<T> GetById(Expression<Func<T, bool>> predicate);
         Task<List<T>> GetAll(Expression<Func<T, bool>> predicate);
+        void StartTransaction();
+        void Commit();
+        void Rollback();
 
     }
 }

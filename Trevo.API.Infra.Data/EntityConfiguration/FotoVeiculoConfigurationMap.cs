@@ -4,14 +4,21 @@ using Trevo.API.Domain.Entities;
 
 namespace Trevo.API.Infra.Data.EntityConfiguration
 {
-    public class FormaPagamentoConfigurationMap : IEntityTypeConfiguration<FormaPagamento>
+    public class FotoVeiculoConfigurationMap : IEntityTypeConfiguration<FotoVeiculo>
     {
-        public void Configure(EntityTypeBuilder<FormaPagamento> builder)
+        public void Configure(EntityTypeBuilder<FotoVeiculo> builder)
         {
             builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Descricao)
                    .HasMaxLength(100);
+
+            builder.Property(c => c.Caminho)
+                   .HasMaxLength(100);
+
+            builder.Property(c => c.Nome)
+                    .HasMaxLength(30);
+
         }
     }
 }

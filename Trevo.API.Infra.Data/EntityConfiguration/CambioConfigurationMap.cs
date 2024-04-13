@@ -4,17 +4,14 @@ using Trevo.API.Domain.Entities;
 
 namespace Trevo.API.Infra.Data.EntityConfiguration
 {
-    public class EstadoConfigurationMap : IEntityTypeConfiguration<Estado>
+    public class CambioConfigurationMap : IEntityTypeConfiguration<Cambio>
     {
-        public void Configure(EntityTypeBuilder<Estado> builder)
+        public void Configure(EntityTypeBuilder<Cambio> builder)
         {
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.Nome)
+            builder.Property(c => c.Descricao)
                    .HasMaxLength(100);
-
-            builder.Property(c => c.UF)
-                   .HasMaxLength(2);
 
         }
     }

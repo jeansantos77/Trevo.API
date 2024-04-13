@@ -20,13 +20,30 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Acessorios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cambios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cambios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,9 +54,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,9 +71,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,9 +88,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -88,9 +105,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,9 +122,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -122,9 +139,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -139,9 +156,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nome = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -156,9 +173,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -173,9 +190,9 @@ namespace Trevo.API.Infra.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -195,13 +212,49 @@ namespace Trevo.API.Infra.Data.Migrations
                     Perfil = table.Column<int>(type: "integer", nullable: false),
                     Ativo = table.Column<bool>(type: "boolean", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Veiculos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Placa = table.Column<string>(type: "character varying(7)", maxLength: 7, nullable: false),
+                    Renavam = table.Column<string>(type: "character varying(11)", maxLength: 11, nullable: false),
+                    AnoFabricacao = table.Column<short>(type: "smallint", nullable: false),
+                    AnoModelo = table.Column<short>(type: "smallint", nullable: false),
+                    Portas = table.Column<short>(type: "smallint", nullable: false),
+                    NumeroMotor = table.Column<string>(type: "character varying(12)", maxLength: 12, nullable: true),
+                    Chassi = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    CategoriaVeiculoId = table.Column<int>(type: "integer", nullable: false),
+                    ModeloId = table.Column<int>(type: "integer", nullable: false),
+                    VersaoId = table.Column<int>(type: "integer", nullable: false),
+                    CorId = table.Column<int>(type: "integer", nullable: false),
+                    CombustivelId = table.Column<int>(type: "integer", nullable: false),
+                    CambioId = table.Column<int>(type: "integer", nullable: false),
+                    SituacaoVeiculoId = table.Column<int>(type: "integer", nullable: false),
+                    ValorVenda = table.Column<double>(type: "numeric(18,2)", nullable: true),
+                    ValorMinimoVenda = table.Column<double>(type: "numeric(18,2)", nullable: true),
+                    ValorFipeEntrada = table.Column<double>(type: "numeric(18,2)", nullable: true),
+                    ValorFipeAtual = table.Column<double>(type: "numeric(18,2)", nullable: true),
+                    CodigoFipe = table.Column<string>(type: "character varying(7)", maxLength: 7, nullable: true),
+                    Obs = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Veiculos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,9 +266,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     MarcaId = table.Column<int>(type: "integer", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -238,9 +291,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     UF = table.Column<string>(type: "character varying(2)", maxLength: 2, nullable: false),
                     PaisId = table.Column<int>(type: "integer", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -254,6 +307,56 @@ namespace Trevo.API.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FotosVeiculo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Caminho = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Nome = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    VeiculoId = table.Column<int>(type: "integer", nullable: false),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FotosVeiculo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FotosVeiculo_Veiculos_VeiculoId",
+                        column: x => x.VeiculoId,
+                        principalTable: "Veiculos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Versoes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    ModeloId = table.Column<int>(type: "integer", nullable: false),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Versoes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Versoes_Modelos_ModeloId",
+                        column: x => x.ModeloId,
+                        principalTable: "Modelos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cidades",
                 columns: table => new
                 {
@@ -262,9 +365,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Nome = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     EstadoId = table.Column<int>(type: "integer", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -273,6 +376,47 @@ namespace Trevo.API.Infra.Data.Migrations
                         name: "FK_Cidades_Estados_EstadoId",
                         column: x => x.EstadoId,
                         principalTable: "Estados",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nome = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Nascimento = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    Cpf = table.Column<string>(type: "character varying(11)", maxLength: 11, nullable: false),
+                    Telefone = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Cep = table.Column<string>(type: "character varying(8)", maxLength: 8, nullable: false),
+                    Logradouro = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Numero = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
+                    Complemento = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Bairro = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    CidadeId = table.Column<int>(type: "integer", nullable: false),
+                    FormaPagamentoId = table.Column<int>(type: "integer", nullable: false),
+                    Obs = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Clientes_Cidades_CidadeId",
+                        column: x => x.CidadeId,
+                        principalTable: "Cidades",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Clientes_FormasPagamento_FormaPagamentoId",
+                        column: x => x.FormaPagamentoId,
+                        principalTable: "FormasPagamento",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -293,9 +437,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Bairro = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     CidadeId = table.Column<int>(type: "integer", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -328,9 +472,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Obs = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     Ativo = table.Column<bool>(type: "boolean", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -365,9 +509,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Obs = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     Ativo = table.Column<bool>(type: "boolean", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -399,9 +543,9 @@ namespace Trevo.API.Infra.Data.Migrations
                     Obs = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     Ativo = table.Column<bool>(type: "boolean", nullable: false),
                     CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
                     AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    AtualizadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -414,10 +558,64 @@ namespace Trevo.API.Infra.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ModelosDesejados",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ModeloId = table.Column<int>(type: "integer", nullable: false),
+                    VersaoId = table.Column<int>(type: "integer", nullable: true),
+                    CorId = table.Column<int>(type: "integer", nullable: false),
+                    ClienteId = table.Column<int>(type: "integer", nullable: false),
+                    CriadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    AtualizadoPor = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "timestamp", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ModelosDesejados", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ModelosDesejados_Clientes_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Clientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ModelosDesejados_Cores_CorId",
+                        column: x => x.CorId,
+                        principalTable: "Cores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ModelosDesejados_Modelos_ModeloId",
+                        column: x => x.ModeloId,
+                        principalTable: "Modelos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ModelosDesejados_Versoes_VersaoId",
+                        column: x => x.VersaoId,
+                        principalTable: "Versoes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Cidades_EstadoId",
                 table: "Cidades",
                 column: "EstadoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clientes_CidadeId",
+                table: "Clientes",
+                column: "CidadeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clientes_FormaPagamentoId",
+                table: "Clientes",
+                column: "FormaPagamentoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Empresas_CidadeId",
@@ -440,9 +638,35 @@ namespace Trevo.API.Infra.Data.Migrations
                 column: "CidadeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FotosVeiculo_VeiculoId",
+                table: "FotosVeiculo",
+                column: "VeiculoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Modelos_MarcaId",
                 table: "Modelos",
                 column: "MarcaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModelosDesejados_ClienteId_ModeloId_VersaoId_CorId",
+                table: "ModelosDesejados",
+                columns: new[] { "ClienteId", "ModeloId", "VersaoId", "CorId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModelosDesejados_CorId",
+                table: "ModelosDesejados",
+                column: "CorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModelosDesejados_ModeloId",
+                table: "ModelosDesejados",
+                column: "ModeloId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModelosDesejados_VersaoId",
+                table: "ModelosDesejados",
+                column: "VersaoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_Email",
@@ -460,6 +684,11 @@ namespace Trevo.API.Infra.Data.Migrations
                 name: "IX_Vendedores_CidadeId",
                 table: "Vendedores",
                 column: "CidadeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Versoes_ModeloId",
+                table: "Versoes",
+                column: "ModeloId");
         }
 
         /// <inheritdoc />
@@ -467,6 +696,9 @@ namespace Trevo.API.Infra.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Acessorios");
+
+            migrationBuilder.DropTable(
+                name: "Cambios");
 
             migrationBuilder.DropTable(
                 name: "CategoriasDespesas");
@@ -478,22 +710,19 @@ namespace Trevo.API.Infra.Data.Migrations
                 name: "Combustiveis");
 
             migrationBuilder.DropTable(
-                name: "Cores");
-
-            migrationBuilder.DropTable(
                 name: "Empresas");
 
             migrationBuilder.DropTable(
                 name: "Financeiras");
 
             migrationBuilder.DropTable(
-                name: "FormasPagamento");
-
-            migrationBuilder.DropTable(
                 name: "Fornecedores");
 
             migrationBuilder.DropTable(
-                name: "Modelos");
+                name: "FotosVeiculo");
+
+            migrationBuilder.DropTable(
+                name: "ModelosDesejados");
 
             migrationBuilder.DropTable(
                 name: "SituacoesVeiculo");
@@ -508,13 +737,31 @@ namespace Trevo.API.Infra.Data.Migrations
                 name: "Vendedores");
 
             migrationBuilder.DropTable(
-                name: "Marcas");
+                name: "Veiculos");
+
+            migrationBuilder.DropTable(
+                name: "Clientes");
+
+            migrationBuilder.DropTable(
+                name: "Cores");
+
+            migrationBuilder.DropTable(
+                name: "Versoes");
 
             migrationBuilder.DropTable(
                 name: "Cidades");
 
             migrationBuilder.DropTable(
+                name: "FormasPagamento");
+
+            migrationBuilder.DropTable(
+                name: "Modelos");
+
+            migrationBuilder.DropTable(
                 name: "Estados");
+
+            migrationBuilder.DropTable(
+                name: "Marcas");
 
             migrationBuilder.DropTable(
                 name: "Paises");

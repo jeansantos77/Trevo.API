@@ -13,17 +13,6 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
             builder.Property(c => c.Nome)
                    .HasMaxLength(100);
 
-            builder.HasOne(c => c.Estado)
-               .WithMany()
-               .HasForeignKey(c => c.EstadoId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Property(c => c.CriadoPor)
-                   .HasMaxLength(30);
-
-            builder.Property(c => c.AtualizadoPor)
-                    .HasMaxLength(30);
-
         }
     }
 }

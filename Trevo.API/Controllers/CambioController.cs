@@ -8,23 +8,22 @@ namespace Trevo.API.Controllers
     [Authorize(Roles = "Administrador")]
     [ApiController]
     [Route("api/[controller]")]
-    public class ClienteController : ControllerBase
+    public class CambioController : ControllerBase
     {
-        private readonly ILogger<ClienteController> _logger;
-        private readonly IClienteService _clienteService;
+        private readonly ILogger<PaisController> _logger;
+        private readonly ICambioService _service;
 
-        public ClienteController(ILogger<ClienteController> logger, IClienteService clienteService)
+        public CambioController(ILogger<PaisController> logger, ICambioService service)
         {
             _logger = logger;
-            _clienteService = clienteService;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _clienteService.GetAll());
+            return Ok(await _service.GetAll());
         }
-
 
         [HttpGet]
         [Route("{id}")]
@@ -32,7 +31,7 @@ namespace Trevo.API.Controllers
         {
             try
             {
-                return Ok(await _clienteService.GetById(id));
+                return Ok(await _service.GetById(id));
             }
             catch (Exception ex)
             {
@@ -41,7 +40,7 @@ namespace Trevo.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] ClienteModel model)
+        public async Task<IActionResult> Add([FromBody] CambioModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +49,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Add(model);
+                await _service.Add(model);
             }
             catch (Exception ex)
             {
@@ -62,7 +61,7 @@ namespace Trevo.API.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ClienteModel model)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] CambioModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -71,7 +70,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Update(id, model);
+                await _service.Update(id, model);
             }
             catch (Exception ex)
             {
@@ -92,7 +91,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Delete(id);
+                await _service.Delete(id);
             }
             catch (Exception ex)
             {

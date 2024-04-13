@@ -37,9 +37,24 @@ namespace Trevo.API.Infra.Data.Repository
             return await _dbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(predicate);
         }
 
-        public async Task<List<T>> GetAll(Expression<Func<T, bool>> predicate)
+        public virtual async Task<List<T>> GetAll(Expression<Func<T, bool>> predicate)
         {
             return await _dbContext.Set<T>().Where(predicate).AsNoTracking().ToListAsync();
+        }
+
+        public void StartTransaction()
+        {
+            _dbContext.Database.BeginTransaction();
+        }
+
+        public void Commit()
+        {
+            _dbContext.Database.CommitTransaction();
+        }
+
+        public void Rollback()
+        {
+            _dbContext.Database.RollbackTransaction();
         }
     }
 }

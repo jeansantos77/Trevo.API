@@ -10,22 +10,7 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
         {
             builder.HasKey(c => c.Id);
 
-            builder.HasOne(c => c.Marca)
-               .WithMany()
-               .HasForeignKey(c => c.MarcaId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(c => c.Modelo)
-               .WithMany()
-               .HasForeignKey(c => c.ModeloId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(c => c.Cor)
-               .WithMany()
-               .HasForeignKey(c => c.CorId)
-               .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasIndex(c => new { c.MarcaId, c.ModeloId, c.CorId }).IsUnique();
+            builder.HasIndex(c => new { c.ClienteId, c.ModeloId, c.VersaoId, c.CorId }).IsUnique();
 
             builder.Property(c => c.CriadoPor)
                    .HasMaxLength(30);
