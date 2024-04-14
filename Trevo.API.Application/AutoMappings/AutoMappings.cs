@@ -208,7 +208,6 @@ namespace Trevo.API.Application.AutoMappings
             CreateMap<VersaoResultModel, Versao>()
                 .ReverseMap();
 
-
             CreateMap<ClienteModel, Cliente>()
                 .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
                 .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())

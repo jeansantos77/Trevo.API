@@ -14,7 +14,9 @@ namespace Trevo.API.Application.Implementations
 
         public required string UserLogged { get; set; }
 
-        public VersaoService(IHttpContextAccessor accessor, IMapper mapper, IVersaoRepository versaoRepository)
+        public VersaoService(IHttpContextAccessor accessor
+                           , IMapper mapper
+                           , IVersaoRepository versaoRepository)
         {
             _mapper = mapper;
             _versaoRepository = versaoRepository;
@@ -69,6 +71,12 @@ namespace Trevo.API.Application.Implementations
             existentRecord.AtualizadoPor = UserLogged;
 
             await _versaoRepository.Update(existentRecord);
+        }
+
+        public async Task<IEnumerable<IVersaoList>> GetList()
+        {
+            return await _versaoRepository.GetList();
+
         }
     }
 

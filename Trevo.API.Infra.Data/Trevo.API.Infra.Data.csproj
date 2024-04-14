@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Trevo.API.Application\Trevo.API.Application.csproj" />
     <ProjectReference Include="..\Trevo.API.Domain\Trevo.API.Domain.csproj" />
   </ItemGroup>
 

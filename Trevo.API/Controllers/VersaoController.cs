@@ -25,6 +25,12 @@ namespace Trevo.API.Controllers
             return Ok(await _versaoService.GetAll());
         }
 
+        [HttpGet]
+        [Route("GetList")]
+        public async Task<IActionResult> GetList()
+        {
+            return Ok(await _versaoService.GetList());
+        }
 
         [HttpGet]
         [Route("{id}")]

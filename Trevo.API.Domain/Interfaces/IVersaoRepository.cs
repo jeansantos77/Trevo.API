@@ -4,5 +4,6 @@ namespace Trevo.API.Domain.Interfaces
 {
     public interface IVersaoRepository : IBaseRepository<Versao>
     {
+        Task<IEnumerable<IVersaoList>> GetList();
     }
 }
