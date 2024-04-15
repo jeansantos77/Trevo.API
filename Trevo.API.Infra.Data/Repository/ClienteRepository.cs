@@ -14,17 +14,27 @@ namespace Trevo.API.Infra.Data.Repository
 
         public override async Task<Cliente> GetById(Expression<Func<Cliente, bool>> predicate)
         {
-            return await _dbContext.Clientes.AsNoTracking().Where(predicate).Include(c => c.ModelosDesejados).FirstOrDefaultAsync();
+            return await _dbContext.Clientes.AsNoTracking()
+                .Where(predicate)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Modelo).ThenInclude(m => m.Marca)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Versao)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Cor)
+                .FirstOrDefaultAsync();
         }
 
         public override async Task<List<Cliente>> GetAll(Expression<Func<Cliente, bool>> predicate)
         {
-            return await _dbContext.Clientes.Where(predicate).Include(c => c.ModelosDesejados).ToListAsync();
+            return await _dbContext.Clientes
+                .Where(predicate)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Modelo).ThenInclude(m => m.Marca)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Versao)
+                .Include(c => c.ModelosDesejados).ThenInclude(md => md.Cor)
+                .ToListAsync();
         }
 
-        public async Task RemoveModelosDesejados(ICollection<ModeloDesejado> list)
+        public async Task RemoveModeloDesejado(ModeloDesejado entity)
         {
-            _dbContext.ModelosDesejados.RemoveRange(list);
+            _dbContext.ModelosDesejados.Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
 
@@ -34,5 +44,11 @@ namespace Trevo.API.Infra.Data.Repository
             await _dbContext.SaveChangesAsync();
         }
 
+        public override Task Delete(Cliente entidade)
+        {
+            _dbContext.ModelosDesejados.RemoveRange(entidade.ModelosDesejados);
+            entidade.ModelosDesejados.Clear();
+            return base.Delete(entidade);
+        }
     }
 }

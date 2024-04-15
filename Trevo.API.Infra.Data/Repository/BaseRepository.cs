@@ -26,7 +26,7 @@ namespace Trevo.API.Infra.Data.Repository
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task Delete(T entidade)
+        public virtual async Task Delete(T entidade)
         {
             _dbContext.Set<T>().Remove(entidade);
             await _dbContext.SaveChangesAsync();

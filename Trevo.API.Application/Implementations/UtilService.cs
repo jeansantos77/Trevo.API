@@ -1,4 +1,6 @@
-﻿namespace Trevo.API.Application.Implementations
+﻿using System.Collections;
+
+namespace Trevo.API.Application.Implementations
 {
     public static class UtilService
     {
@@ -8,11 +10,14 @@
             {
                 if (property.CanRead && property.CanWrite)
                 {
-                    var value = source?.GetType().GetProperty(property.Name)?.GetValue(source);
-
-                    if (value != null && !string.IsNullOrEmpty(value.ToString()))
+                    if (property.PropertyType == typeof(string) || !typeof(IEnumerable).IsAssignableFrom(property.PropertyType))
                     {
-                        property.SetValue(destination, value);
+                        var value = source?.GetType().GetProperty(property.Name)?.GetValue(source);
+
+                        if (value != null && !string.IsNullOrEmpty(value.ToString()))
+                        {
+                            property.SetValue(destination, value);
+                        }
                     }
                 }
             }

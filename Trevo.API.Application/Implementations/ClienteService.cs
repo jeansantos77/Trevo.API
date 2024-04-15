@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
 using Trevo.API.Domain.Entities;
 using Trevo.API.Domain.Interfaces;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.Implementations
 {
@@ -28,6 +28,12 @@ namespace Trevo.API.Application.Implementations
 
             model.CriadoPor = UserLogged;
             model.AtualizadoPor = model.CriadoPor;
+
+            foreach (var item in model.ModelosDesejados)
+            {
+                item.CriadoPor = UserLogged;
+                item.AtualizadoPor = item.CriadoPor;
+            }
 
             await _clienteRepository.Add(model);
         }
@@ -72,15 +78,30 @@ namespace Trevo.API.Application.Implementations
                 existentRecord.AtualizadoPor = UserLogged;
                 await _clienteRepository.Update(existentRecord);
 
-                if (entity.ModelosDesejadosModel != null)
-                {
-                    await _clienteRepository.RemoveModelosDesejados(existentRecord.ModelosDesejados);
+                List<ModeloDesejado> modelosDesejadosOld = new(existentRecord.ModelosDesejados);
 
-                    foreach (var modelo in entity.ModelosDesejadosModel)
+                foreach (var modeloOld in modelosDesejadosOld)
+                {
+                    ModeloDesejadoModel? model = entity.ModelosDesejados.FirstOrDefault(x => x.Id == modeloOld.Id);
+
+                    if (model != null)
+                    {
+                        entity.ModelosDesejados.Remove(model);
+                    }
+                    else
+                    {
+                        await _clienteRepository.RemoveModeloDesejado(modeloOld);
+                    }
+                }
+
+                if (entity.ModelosDesejados.Any())
+                {
+                    foreach (var modelo in entity.ModelosDesejados)
                     {
                         ModeloDesejado entityModelo = _mapper.Map<ModeloDesejado>(modelo);
                         entityModelo.CriadoPor = UserLogged;
                         entityModelo.AtualizadoPor = entityModelo.CriadoPor;
+                        entityModelo.ClienteId = id;
 
                         await _clienteRepository.AddModeloDesejado(entityModelo);
                     }

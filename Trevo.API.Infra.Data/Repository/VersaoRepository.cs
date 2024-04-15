@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Trevo.API.Application.Models;
 using Trevo.API.Domain.Entities;
 using Trevo.API.Domain.Interfaces;
+using Trevo.API.Domain.Models;
 using Trevo.API.Infra.Data.Context;
 
 namespace Trevo.API.Infra.Data.Repository
@@ -12,7 +12,7 @@ namespace Trevo.API.Infra.Data.Repository
         {
         }
 
-        public async Task<IEnumerable<IVersaoList>> GetList()
+        public async Task<IEnumerable<VersaoListModel>> GetList()
         {
             var query = from versao in _dbContext.Versoes
                         join modelo in _dbContext.Modelos on versao.ModeloId equals modelo.Id

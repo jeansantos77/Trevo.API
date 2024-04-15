@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Trevo.API.Application.Models;
 using Trevo.API.Domain.Entities;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.AutoMappings
 {
@@ -225,6 +225,16 @@ namespace Trevo.API.Application.AutoMappings
                 .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
                 .ReverseMap();
 
+            CreateMap<ModeloDesejado, ModeloDesejadoResultModel>()
+                .ForMember(dest => dest.Marca, opt => opt.MapFrom(src => src.Modelo.Marca.Descricao))
+                .ForMember(dest => dest.Modelo, opt => opt.MapFrom(src => src.Modelo.Descricao))
+                .ForMember(dest => dest.Versao, opt => opt.MapFrom(src => src.Versao != null ? src.Versao.Descricao : null))
+                .ForMember(dest => dest.Cor, opt => opt.MapFrom(src => src.Cor.Descricao));
+
+            CreateMap<ModeloDesejadoResultModel, ModeloDesejado>()
+                .ForMember(dest => dest.Modelo, opt => opt.Ignore())
+                .ForMember(dest => dest.Versao, opt => opt.Ignore())
+                .ForMember(dest => dest.Cor, opt => opt.Ignore());
         }
     }
 }

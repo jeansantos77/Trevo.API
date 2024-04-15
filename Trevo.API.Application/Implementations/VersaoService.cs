@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
 using Trevo.API.Domain.Entities;
 using Trevo.API.Domain.Interfaces;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.Implementations
 {
@@ -73,7 +73,7 @@ namespace Trevo.API.Application.Implementations
             await _versaoRepository.Update(existentRecord);
         }
 
-        public async Task<IEnumerable<IVersaoList>> GetList()
+        public async Task<IEnumerable<VersaoListModel>> GetList()
         {
             return await _versaoRepository.GetList();
 

@@ -1,28 +1,28 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Controllers
 {
     [Authorize(Roles = "Administrador")]
     [ApiController]
     [Route("api/[controller]")]
-    public class ClienteController : ControllerBase
+    public class FornecedorController : ControllerBase
     {
-        private readonly ILogger<ClienteController> _logger;
-        private readonly IClienteService _clienteService;
+        private readonly ILogger<FornecedorController> _logger;
+        private readonly IFornecedorService _fornecedorService;
 
-        public ClienteController(ILogger<ClienteController> logger, IClienteService clienteService)
+        public FornecedorController(ILogger<FornecedorController> logger, IFornecedorService fornecedorService)
         {
             _logger = logger;
-            _clienteService = clienteService;
+            _fornecedorService = fornecedorService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _clienteService.GetAll());
+            return Ok(await _fornecedorService.GetAll());
         }
 
 
@@ -32,7 +32,7 @@ namespace Trevo.API.Controllers
         {
             try
             {
-                return Ok(await _clienteService.GetById(id));
+                return Ok(await _fornecedorService.GetById(id));
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace Trevo.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] ClienteModel model)
+        public async Task<IActionResult> Add([FromBody] FornecedorModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Add(model);
+                await _fornecedorService.Add(model);
             }
             catch (Exception ex)
             {
@@ -62,7 +62,7 @@ namespace Trevo.API.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ClienteModel model)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] FornecedorModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Update(id, model);
+                await _fornecedorService.Update(id, model);
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace Trevo.API.Controllers
 
             try
             {
-                await _clienteService.Delete(id);
+                await _fornecedorService.Delete(id);
             }
             catch (Exception ex)
             {

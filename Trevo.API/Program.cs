@@ -6,8 +6,8 @@ using System.Text;
 using Trevo.API.Application.AutoMappings;
 using Trevo.API.Application.Implementations;
 using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
 using Trevo.API.Domain.Interfaces;
+using Trevo.API.Domain.Models;
 using Trevo.API.Infra.Data.Context;
 using Trevo.API.Infra.Data.Repository;
 

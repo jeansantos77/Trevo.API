@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Trevo.API.Domain.Entities;
 using Trevo.API.Infra.Data.EntityConfiguration;
 
@@ -66,13 +67,6 @@ namespace Trevo.API.Infra.Data.Context
             {
                 foreach (var property in entityType.GetProperties())
                 {
-                    // Verifica se a propriedade é do tipo DateTime
-                    if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
-                    {
-                        // Configura a propriedade como timestamp sem timezone
-                        property.SetColumnType("timestamp");
-                    }
-
                     if (property.ClrType == typeof(double) || property.ClrType == typeof(double?))
                     {
                         // Configura a propriedade para ter duas casas decimais no PostgreSQL
@@ -104,7 +98,7 @@ namespace Trevo.API.Infra.Data.Context
         {
             var entities = ChangeTracker.Entries().Where(x => x.State == EntityState.Added || x.State == EntityState.Modified);
 
-            var currentTime = DateTime.Now;
+            var currentTime = DateTime.UtcNow;
 
             foreach (var entity in entities)
             {
@@ -114,6 +108,18 @@ namespace Trevo.API.Infra.Data.Context
                 }
 
                 entity.Property("AtualizadoEm").CurrentValue = currentTime;
+
+                var properties = entity.GetType().GetProperties().Where(p => p.PropertyType == typeof(DateTime));
+
+                foreach (var property in properties)
+                {
+                    if (property.Name == "Nascimento")
+                    {
+                        entity.Property("Nascimento").CurrentValue = Convert.ToDateTime(entity.Property("Nascimento").CurrentValue).ToUniversalTime();
+                    }
+                }
+
+
             }
 
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);

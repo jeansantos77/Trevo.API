@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Controllers
 {

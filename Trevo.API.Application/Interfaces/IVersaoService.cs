@@ -1,10 +1,9 @@
-﻿using Trevo.API.Application.Models;
-using Trevo.API.Domain.Interfaces;
+﻿using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.Interfaces
 {
     public interface IVersaoService : IBaseService<VersaoModel, VersaoResultModel>
     {
-        Task<IEnumerable<IVersaoList>> GetList();
+        Task<IEnumerable<VersaoListModel>> GetList();
     }
 }

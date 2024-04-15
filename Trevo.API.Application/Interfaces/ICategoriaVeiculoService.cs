@@ -1,4 +1,4 @@
-﻿using Trevo.API.Application.Models;
+﻿using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.Interfaces
 {

@@ -19,7 +19,7 @@ namespace Trevo.API.Domain.Entities
         public required int FormaPagamentoId { get; set; }
         public required FormaPagamento FormaPagamento { get; set; }
         public string? Obs { get; set; }
-        public Collection<ModeloDesejado> ModelosDesejados { get; set; } = [];
+        public ICollection<ModeloDesejado> ModelosDesejados { get; set; } = [];
 
     }
 }

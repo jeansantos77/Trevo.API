@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Trevo.API.Application.Interfaces;
-using Trevo.API.Application.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Trevo.API.Application.Interfaces;
+using Trevo.API.Domain.Models;
 
 namespace Trevo.API.Application.Implementations
 {
