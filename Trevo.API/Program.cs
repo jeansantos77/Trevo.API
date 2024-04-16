@@ -70,6 +70,8 @@ builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<ICambioRepository, CambioRepository>();
 builder.Services.AddScoped<ICambioService, CambioService>();
+builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));

@@ -235,6 +235,36 @@ namespace Trevo.API.Application.AutoMappings
                 .ForMember(dest => dest.Modelo, opt => opt.Ignore())
                 .ForMember(dest => dest.Versao, opt => opt.Ignore())
                 .ForMember(dest => dest.Cor, opt => opt.Ignore());
+
+            CreateMap<Veiculo, VeiculoResultModel>()
+                .ForMember(dest => dest.Marca, opt => opt.MapFrom(src => src.Modelo.Marca.Descricao))
+                .ForMember(dest => dest.MarcaId, opt => opt.MapFrom(src => src.Modelo.MarcaId))
+                .ForMember(dest => dest.Modelo, opt => opt.MapFrom(src => src.Modelo.Descricao))
+                .ForMember(dest => dest.Versao, opt => opt.MapFrom(src => src.Versao.Descricao))
+                .ForMember(dest => dest.Cor, opt => opt.MapFrom(src => src.Cor.Descricao));
+
+            CreateMap<VeiculoResultModel, Veiculo>()
+                .ForMember(dest => dest.Modelo, opt => opt.Ignore())
+                .ForMember(dest => dest.Versao, opt => opt.Ignore())
+                .ForMember(dest => dest.Cor, opt => opt.Ignore());
+
+            CreateMap<VeiculoModel, Veiculo>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<FotoVeiculoModel, FotoVeiculo>()
+                .ForMember(dest => dest.CriadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.CriadoEm, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoPor, opt => opt.Ignore())
+                .ForMember(dest => dest.AtualizadoEm, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<FotoVeiculoResultModel, FotoVeiculo>()
+                .ReverseMap();
+
         }
     }
 }

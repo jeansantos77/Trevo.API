@@ -37,10 +37,6 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
             builder.Property(c => c.Complemento)
                 .HasMaxLength(50);
 
-            builder.HasMany(b => b.ModelosDesejados) 
-               .WithOne(e => e.Cliente)    
-               .HasForeignKey(e => e.ClienteId) 
-               .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 }

@@ -25,6 +25,8 @@ namespace Trevo.API.Infra.Data.EntityConfiguration
             builder.Property(c => c.CodigoFipe)
                 .HasMaxLength(7);
 
+            builder.HasIndex(c => new { c.Placa }).IsUnique();
+
         }
     }
 }
